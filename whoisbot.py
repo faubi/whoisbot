@@ -14,6 +14,8 @@ async def send(channel, message):
 
 @client.event
 async def on_message(msg):
+	if msg.author.bot:
+		return
 	if msg.content.startswith("!who-is "):
 		name = msg.content[8:]
 		member = msg.server.get_member_named(name)
